@@ -133,7 +133,7 @@ public class RestProtocolTest {
     public void testRegFail() {
         StaticContext.getContext(Constants.SERVICE_IMPL_CLASS).put(exportUrl.getServiceKey(), DemoService.class);
 
-        URL nettyUrl = exportUrl.addParameter(Constants.EXTENSION_KEY, "com.not.existing.Filter");
+        URL nettyUrl = exportUrl.addParameter(Constants.EXTENSION_KEY, "com.not.existing.filter");
         protocol.export(proxy.getInvoker(new DemoService(), IDemoService.class, nettyUrl));
     }
 

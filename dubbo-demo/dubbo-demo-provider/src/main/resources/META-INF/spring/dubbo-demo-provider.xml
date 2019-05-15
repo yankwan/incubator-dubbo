@@ -31,8 +31,13 @@
     <!-- use dubbo protocol to export service on port 20880 -->
     <dubbo:protocol name="dubbo" port="20880"/>
 
+    <!-- demoFilter 在META-INF/dubbo 配置文件中，通过dubbo SPI 方式加载 -->
+    <dubbo:provider delay="-1" retries="0" filter="demoFilter" />
+
     <!-- service implementation, as same as regular local bean -->
     <bean id="demoService" class="com.alibaba.dubbo.demo.provider.DemoServiceImpl"/>
+
+    <bean id="demoDao" class="com.alibaba.dubbo.demo.provider.DemoDao" />
 
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="com.alibaba.dubbo.demo.DemoService" ref="demoService"/>
